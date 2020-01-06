@@ -12,7 +12,7 @@ Alibaba Cloud Toolkit 插件已经提供了 Arthas  快捷方式,如图点击后
 
 Alibabs Cloud Toolkit  -> 选定服务器，点击 More -> Diagnositc 
 
-![./Alibaba Cloud Tookkit.png](.\Alibaba Cloud Toolkit.png)
+![./Alibaba Cloud Tookkit.png](./images/Alibaba Cloud Toolkit.png)
 
 官方教程已经覆盖了主要功能，此处仅记录常用的几个功能点，方便平时排查问题。
 
