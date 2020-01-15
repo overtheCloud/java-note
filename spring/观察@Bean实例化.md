@@ -245,10 +245,6 @@ for (String ppName : nonOrderedPostProcessorNames) {
 registerBeanPostProcessors(beanFactory, nonOrderedPostProcessors);
 ```
 
-#### 注意
-
-如果一个类既实现了 `BeanFactoryPostProcessor` 又实现了 `BeanPostProcessor` 接口，那么 `BeanPostProcessor` 的postProcessBeforeInitialization 和 postProcessAfterInitialization 方法不会被调用，因为这两个方法在实例化对象前后调用，而 `BeanFactoryPostProcessor`  处理在 `BeanPostProcessor` 前，执行`BeanFactoryPostProcessor#postProcessBeanFactory`  时实例化 bean 时，bean 还未被 beanfactory 注册为 BeanPostProcessor，下面的代码里会解释。
-
 回到 `refresh()`
 
 ```java
