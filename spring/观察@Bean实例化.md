@@ -89,11 +89,11 @@ public class SpringDemo {
 
 `BeanFactory` 如下图, 此处最重要的类是 `DefaultListableBeanFactory`， `BeanFactory` 的集大成者，通过**组合**的方式在 `ApplicationContext` 中被使用。
 
-![](./DefaultListableBeanFactory.png)
+![](./images/DefaultListableBeanFactory.png)
 
 `ApplicationContext` 如下,此处 `AnnotationConfigApplicationContext` 是一种基于注解的实现方式,还有 `ClassPathXmlApplicationContext` 和 `FileSystemXmlApplicationContext` 两种基于 XML 解析 bean 方式，二者的差异就是定义和实例化 bean 的方式不同，不展开。
 
-![](./ApplicationContext.png)
+![](./images/ApplicationContext.png)
 
 ### debug 启动
 
