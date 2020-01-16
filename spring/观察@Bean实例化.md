@@ -1,4 +1,4 @@
-# 观察 @Bean 实例化
+# 观察 Spring bean 实例化
 
 ##### 目的
 
@@ -89,11 +89,11 @@ public class SpringDemo {
 
 `BeanFactory` 如下图, 此处最重要的类是 `DefaultListableBeanFactory`， `BeanFactory` 的集大成者，通过**组合**的方式在 `ApplicationContext` 中被使用。
 
-![](./images/DefaultListableBeanFactory.png)
+![](./DefaultListableBeanFactory.png)
 
 `ApplicationContext` 如下,此处 `AnnotationConfigApplicationContext` 是一种基于注解的实现方式,还有 `ClassPathXmlApplicationContext` 和 `FileSystemXmlApplicationContext` 两种基于 XML 解析 bean 方式，二者的差异就是定义和实例化 bean 的方式不同，不展开。
 
-![](./images/ApplicationContext.png)
+![](./ApplicationContext.png)
 
 ### debug 启动
 
@@ -244,6 +244,10 @@ for (String ppName : nonOrderedPostProcessorNames) {
 }
 registerBeanPostProcessors(beanFactory, nonOrderedPostProcessors);
 ```
+
+#### 注意
+
+如果一个类既实现了 `BeanFactoryPostProcessor` 又实现了 `BeanPostProcessor` 接口，那么 `BeanPostProcessor` 的postProcessBeforeInitialization 和 postProcessAfterInitialization 方法不会被调用，因为这两个方法在实例化对象前后调用，而 `BeanFactoryPostProcessor`  处理在 `BeanPostProcessor` 前，执行`BeanFactoryPostProcessor#postProcessBeanFactory`  时实例化 bean 时，bean 还未被 beanfactory 注册为 BeanPostProcessor，下面的代码里会解释。
 
 回到 `refresh()`
 
@@ -524,6 +528,10 @@ public Object getSingleton(String beanName) {
 
 protected Object getSingleton(String beanName, boolean allowEarlyReference) {
     Object singletonObject = this.singletonObjects.get(beanName);
+    // spring 通过三级缓存解决循环依赖的问题
+    // singletonObject 单例对象的缓存，此时bean已经完成初始化
+    // earlySingletonObjects 提前暴露的单例对象引用的缓存，此时bean未初始化
+    // singletonFactories 单例对象工厂的缓存
     // 如果缓存中不存在且 bean 被标识为正在创建中
     if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
         synchronized (this.singletonObjects) {
@@ -542,6 +550,19 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
     return singletonObject;
 }
 ```
+
+##### spring 如何解决循环依赖的
+
+单例模式下属性注入方式的循环依赖可以解决，多例模式下循环依赖无法解决。
+
+关键词：
+
+1. 创建对象的过程：实例化、填充属性、初始化
+2. 三级缓存
+
+假设 A 依赖 B，属性注入非构造器注入。实例化 A 后放入二级缓存，填充属性时，三级缓存中均没有 B，需要实例化 B。实例化 B 后填充属性时需要 A 的实例，一级缓存中没有，在二级缓存中找到 A 的实例引用，这样就可以完成 B 的创建，再返回完成填充 A 的属性，最后初始化 A。
+
+> 参考：   [Spring-bean的循环依赖以及解决方式](https://blog.csdn.net/u010853261/article/details/77940767)
 
 ##### 代码块 2
 
@@ -571,9 +592,22 @@ synchronized (this.singletonObjects) {
 }
 ```
 
-进入 `org.springframework.beans.factory.support.AbstractBeanFactory#createBean`
+进入 `org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory#createBean`
 
 ```java
+// Prepare method overrides.
+// 对应 <bean> 的 <lookup-method /> 和 <replaced-method />
+try {
+    mbdToUse.prepareMethodOverrides();
+}
+... ...
+try {
+    // 返回 aop 代理，此处会跳过
+    Object bean = resolveBeforeInstantiation(beanName, mbdToUse);
+    if (bean != null) {
+        return bean; 
+    }
+}
 ... ...
 Object beanInstance = doCreateBean(beanName, mbdToUse, args);
 ... ...
