@@ -3,6 +3,7 @@
 ## Tomcat
 # 框架
 ## Spring
+### [观察@Bean实例化](./spring/观察@Bean实例化.md)
 ## Mybatis
 # 数据库
 ## Mysql
