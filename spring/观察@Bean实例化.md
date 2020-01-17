@@ -89,11 +89,11 @@ public class SpringDemo {
 
 `BeanFactory` 如下图, 此处最重要的类是 `DefaultListableBeanFactory`， `BeanFactory` 的集大成者，通过**组合**的方式在 `ApplicationContext` 中被使用。
 
-![](./DefaultListableBeanFactory.png)
+![](./images/DefaultListableBeanFactory.png)
 
 `ApplicationContext` 如下,此处 `AnnotationConfigApplicationContext` 是一种基于注解的实现方式,还有 `ClassPathXmlApplicationContext` 和 `FileSystemXmlApplicationContext` 两种基于 XML 解析 bean 方式，二者的差异就是定义和实例化 bean 的方式不同，不展开。
 
-![](./ApplicationContext.png)
+![](./images/ApplicationContext.png)
 
 ### debug 启动
 
@@ -621,6 +621,13 @@ if (instanceWrapper == null) {
     // 创建 bean
     instanceWrapper = createBeanInstance(beanName, mbd, args);
 }
+... ...
+try {
+    // 填充属性
+    populateBean(beanName, mbd, instanceWrapper);
+    // 此处处理 BeanPostProcessor 和 init-method,详情查看代码块3，
+    exposedObject = initializeBean(beanName, exposedObject, mbd);
+}
 ```
 
 进入 `org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory#createBeanInstance`
@@ -632,7 +639,6 @@ if (mbd.getFactoryMethodName() != null) {
 }
 ... ...
 // Candidate constructors for autowiring?
-// @autowiring 注入的
 Constructor<?>[] ctors = determineConstructorsFromBeanPostProcessors(beanClass, beanName);
 if (ctors != null || mbd.getResolvedAutowireMode() == AUTOWIRE_CONSTRUCTOR ||
     mbd.hasConstructorArgumentValues() || !ObjectUtils.isEmpty(args)) {
@@ -760,6 +766,47 @@ return this.beanFactory.getInstantiationStrategy().instantiate(
 // 通过反射调用 beanConf 的 person 方法
 Object result = factoryMethod.invoke(factoryBean, args);
 ```
+
+##### 代码块3
+
+```java
+if (System.getSecurityManager() != null) {
+    AccessController.doPrivileged((PrivilegedAction<Object>) () -> {
+        invokeAwareMethods(beanName, bean);
+        return null;
+    }, getAccessControlContext());
+}
+else {
+    // 处理 Aware 接口
+    invokeAwareMethods(beanName, bean);
+}
+
+Object wrappedBean = bean;
+if (mbd == null || !mbd.isSynthetic()) {
+    // 调用 postProcessBeforeInitialization
+    // @PostConstruct 会在此处被org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor#postProcessBeforeInitialization 调用
+    wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
+}
+
+try {
+    
+    // 调用 init-method
+    invokeInitMethods(beanName, wrappedBean, mbd);
+}
+catch (Throwable ex) {
+    throw new BeanCreationException(
+        (mbd != null ? mbd.getResourceDescription() : null),
+        beanName, "Invocation of init method failed", ex);
+}
+if (mbd == null || !mbd.isSynthetic()) {
+    // 调用 postProcessAfterInitialization
+    wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
+}
+
+return wrappedBean;
+```
+
+
 
 ### 总结
 
