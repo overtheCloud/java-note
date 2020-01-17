@@ -245,10 +245,6 @@ for (String ppName : nonOrderedPostProcessorNames) {
 registerBeanPostProcessors(beanFactory, nonOrderedPostProcessors);
 ```
 
-#### 注意
-
-如果一个类既实现了 `BeanFactoryPostProcessor` 又实现了 `BeanPostProcessor` 接口，那么 `BeanPostProcessor` 的postProcessBeforeInitialization 和 postProcessAfterInitialization 方法不会被调用，因为这两个方法在实例化对象前后调用，而 `BeanFactoryPostProcessor`  处理在 `BeanPostProcessor` 前，执行`BeanFactoryPostProcessor#postProcessBeanFactory`  时实例化 bean 时，bean 还未被 beanfactory 注册为 BeanPostProcessor，下面的代码里会解释。
-
 回到 `refresh()`
 
 ```java
@@ -560,7 +556,7 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 1. 创建对象的过程：实例化、填充属性、初始化
 2. 三级缓存
 
-假设 A 依赖 B，属性注入非构造器注入。实例化 A 后放入二级缓存，填充属性时，三级缓存中均没有 B，需要实例化 B。实例化 B 后填充属性时需要 A 的实例，一级缓存中没有，在二级缓存中找到 A 的实例引用，这样就可以完成 B 的创建，再返回完成填充 A 的属性，最后初始化 A。
+假设 A 依赖 B，属性注入非构造器注入。实例化 A 后`addSingletonFactory`，填充属性时，三级缓存中均没有 B，需要实例化 B。实例化 B 后填充属性时需要 A 的实例，一级缓存中没有，在缓存中找到 A 的实例引用，这样就可以完成 B 的创建，再返回完成填充 A 的属性，最后初始化 A。
 
 > 参考：   [Spring-bean的循环依赖以及解决方式](https://blog.csdn.net/u010853261/article/details/77940767)
 
