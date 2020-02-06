@@ -1,0 +1,10 @@
+### idea 配置
+`edit configurations` -> 点击 `+` -> 选择 `Remote`
+![](./images/idea-remote-debug-config.png)
+
+### 启动远程服务
+`java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 xxx.jar`
+其中 `-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005` 与上图框中内容保持一致
+
+### idea 调式
+本地打断点，调用远程接口即可
