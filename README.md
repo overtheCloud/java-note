@@ -261,6 +261,8 @@
 > [谈谈数据一致性](https://github.com/javagrowing/JGrowing/blob/master/分布式/谈谈数据一致性.md)
 >
 > [分布式必看系列](https://github.com/doocs/advanced-java)
+>
+> [6种限流方式](./docs/分布式/6种限流方式.md)
 
 - 微服务
 
@@ -401,6 +403,10 @@
 - 其他语言
 
 > [Node.js](./docs/node/node目录.md)
+>
+> [vue](./docs/前端/vue.md)
+>
+> 
 
 
 
