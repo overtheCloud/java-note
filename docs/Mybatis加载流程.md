@@ -429,6 +429,7 @@ mapperMethod.execute(sqlSession, args);
 switch (command.getType()) {
     case INSERT: {
         Object param = method.convertArgsToSqlCommandParam(args);
+        // 
         result = rowCountResult(sqlSession.insert(command.getName(), param)); // 19 
         break;
     }    
@@ -445,6 +446,143 @@ executor.update(ms, wrapCollection(parameter));
 // 10 Executor 会使用 JDBC 操作数据库
 statement.execute(sql);
 ```
+
+### INSERT  useGeneratedKeys 是如何注入主键的
+
+主要是使用 JDBC 的 getGeneratedKeys 方法来取出由数据库内部生成的主键， `Eeecutor`  执行 `INSERT` 时
+
+```java
+public Object execute(SqlSession sqlSession, Object[] args) {
+    Object result;
+    switch (command.getType()) {
+      case INSERT: {
+        Object param = method.convertArgsToSqlCommandParam(args);
+          // 主键处理是在 sqlSession.insert
+        result = rowCountResult(sqlSession.insert(command.getName(), param));
+        break;
+          ...
+      }
+...
+}
+```
+
+进入  `org.apache.ibatis.session.defaults.DefaultSqlSession#insert(java.lang.String, java.lang.Object)`
+
+```java
+// statement 是方法id , 形式是 package.class.method 
+public int insert(String statement, Object parameter) {
+    return update(statement, parameter);
+}
+
+public int update(String statement, Object parameter) {
+...
+      return executor.update(ms, wrapCollection(parameter));
+...
+}
+```
+
+进入  `org.apache.ibatis.executor.CachingExecutor#update`
+
+```java
+public int update(MappedStatement ms, Object parameterObject) throws SQLException {
+    flushCacheIfRequired(ms);
+    // **
+    return delegate.update(ms, parameterObject);
+}
+```
+
+进入 `org.apache.ibatis.executor.BaseExecutor#update`
+
+```java
+public int update(MappedStatement ms, Object parameter) throws SQLException {
+    ...
+    // **
+    return doUpdate(ms, parameter);
+  }
+```
+
+进入 `org.apache.ibatis.executor.SimpleExecutor#doUpdate`
+
+```java
+public int doUpdate(MappedStatement ms, Object parameter) throws SQLException {
+    Statement stmt = null;
+    try {
+      Configuration configuration = ms.getConfiguration();
+      StatementHandler handler = configuration.newStatementHandler(this, ms, parameter, RowBounds.DEFAULT, null, null);
+      stmt = prepareStatement(handler, ms.getStatementLog());
+      // **
+      return handler.update(stmt);
+    } finally {
+      closeStatement(stmt);
+    }
+  }
+```
+
+进入 `org.apache.ibatis.executor.statement.RoutingStatementHandler#update`
+
+```java
+public int update(Statement statement) throws SQLException {
+    return delegate.update(statement);
+  }
+```
+
+进入 `org.apache.ibatis.executor.statement.PreparedStatementHandler#update`
+
+```java
+public int update(Statement statement) throws SQLException {
+    PreparedStatement ps = (PreparedStatement) statement;
+    ps.execute();
+    int rows = ps.getUpdateCount();
+    Object parameterObject = boundSql.getParameterObject();
+    // keyGenerator 是 Jdbc3KeyGenerator
+    KeyGenerator keyGenerator = mappedStatement.getKeyGenerator();
+    // 此处注入主键
+    keyGenerator.processAfter(executor, mappedStatement, ps, parameterObject);
+    return rows;
+  }
+```
+
+`mappedStatement.getKeyGenerator()` 是在解析 mapper 时决定的
+
+```java
+// 需要数据库生成的主键时，useGeneratedKeys = true
+keyGenerator = context.getBooleanAttribute("useGeneratedKeys",
+          configuration.isUseGeneratedKeys() && SqlCommandType.INSERT.equals(sqlCommandType))
+          ? Jdbc3KeyGenerator.INSTANCE : NoKeyGenerator.INSTANCE;
+```
+
+返回看 `org.apache.ibatis.executor.keygen.Jdbc3KeyGenerator#processAfter`
+
+```java
+public void processAfter(Executor executor, MappedStatement ms, Statement stmt, Object parameter) {
+    processBatch(ms, stmt, parameter);
+  }
+  
+public void processBatch(MappedStatement ms, Statement stmt, Object parameter) {
+    // useGeneratedKeys 要和 keyproperties 配置使用，指定主键要赋值给那个字段
+    final String[] keyProperties = ms.getKeyProperties();
+    if (keyProperties == null || keyProperties.length == 0) {
+      return;
+    }
+    try (ResultSet rs = stmt.getGeneratedKeys()) {
+      final ResultSetMetaData rsmd = rs.getMetaData();
+      final Configuration configuration = ms.getConfiguration();
+      if (rsmd.getColumnCount() < keyProperties.length) {
+        // Error?
+      } else {
+          // 注入主键在此通过反射实现就不再深入 
+          // method.invoke(object, params); method=set方法,object=参数model,params=主键
+        assignKeys(configuration, rs, rsmd, keyProperties, parameter);
+      }
+    } catch (Exception e) {
+      throw new ExecutorException("Error getting generated key or setting result to parameter object. Cause: " + e, e);
+    }
+  }  
+```
+
+
+
+
 
 ### 问题
 
