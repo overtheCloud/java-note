@@ -42,6 +42,8 @@
 >
 > [LinkedHashMap](./docs/LinkedHashMap.md)
 >
+> ConcurrentHashMap
+>
 > [TreeMap](./docs/TreeMap.md)
 
 - IO

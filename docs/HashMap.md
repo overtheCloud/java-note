@@ -477,6 +477,12 @@ static <K,V> void moveRootToFront(Node<K,V>[] tab, TreeNode<K,V> root) {
 }
 ```
 
+### 死链问题
+
+
+
+### 并发读写问题
+
 
 
 ### HashMap 在 1.8 与 1.7 的实现差异
