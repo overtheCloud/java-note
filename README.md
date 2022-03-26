@@ -1,16 +1,16 @@
 # java-notes
-
-- 算法
+[toc]
+# 算法
 
 > [8 种排序](https://www.cnblogs.com/IUbanana/p/7056734.html)
 
-- 数据结构
+# 数据结构
 
 > [算法和数据结构](./docs/算法和数据结构.md)
 >
 > [30张图带你彻底理解红黑树](https://www.jianshu.com/p/e136ec79235c)
 
-- 设计模式
+# 设计模式
 
 > [设计模式](./docs/设计模式/设计模式.md)
 >
@@ -20,7 +20,7 @@
 >
 > [观察者模式](./docs/设计模式/观察者模式)
 
-- 基础
+# 基础
 
 > [8 种基础数据类型和 String、StringBuffer、StringBuilder](./docs/数据类型.md) 
 >
@@ -104,19 +104,19 @@
 
 - JVM
 
-> [JVM](./docs/JVM.md)
+> [JVM](./docs/JVM/JVM.md)
 >
 > [class 文件](https://www.jianshu.com/p/247e2475fc3a)
 >
-> [虚拟机自带性能监控和故障排查工具](./docs/虚拟机自带性能监控和故障排查工具.md)
+> [虚拟机自带性能监控和故障排查工具](./docs/JVM/虚拟机自带性能监控和故障排查工具.md)
 >
 > [解密阿里线上问题诊断工具Arthas和jvm-sandbox](https://github.com/javagrowing/JGrowing/blob/master/CaseStudy/排查工具/解密阿里线上问题诊断工具Arthas和jvm-sandbox.md)
 >
-> [Arthas](./docs/arthas.md)
+> [Arthas](./docs/JVM/arthas.md)
 >
-> [类加载器](./docs/类加载器.md)
+> [类加载器](./docs/JVM/类加载器.md)
 
-- web 基础
+# web 基础
 
 >[Servlet](https://blog.csdn.net/qq_19782019/article/details/80292110)
 >
@@ -136,26 +136,26 @@
 >
 >[NGINX常用命令](./docs/nginx/常用命令.md)
 
-- 框架
+# 框架
 
-> Spring
+## Spring
 >
-> > [观察 Spring bean 实例化](./docs/spring/观察 Spring bean 实例化.md)
-> >
-> > [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)
-> >
-> > [Spring AOP 使用介绍，从前世到今生](https://javadoop.com/post/spring-aop-intro)
-> >
-> > [Spring AOP 源码解析](https://javadoop.com/post/spring-aop-source)
-> >
-> > [AOP 在哪个生命周期完成的](https://www.jianshu.com/p/83f45b8ed3a6)
-> >
-> > [理解BeanDefinition和BeanPostProcessor](https://zhuanlan.zhihu.com/p/70642885)
-> >
-> > [spring 中的设计模式](./docs/Spring 中的设计模式.md)
-> >
-> > [动态代理和CGLIB](./docs/动态代理和CGLIB.md)
-> >
+>  [观察 Spring bean 实例化](./docs/spring/观察 Spring bean 实例化.md)
+> 
+>  [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)
+> 
+>  [Spring AOP 使用介绍，从前世到今生](https://javadoop.com/post/spring-aop-intro)
+> 
+>  [Spring AOP 源码解析](https://javadoop.com/post/spring-aop-source)
+> 
+>  [AOP 在哪个生命周期完成的](https://www.jianshu.com/p/83f45b8ed3a6)
+> 
+>  [理解BeanDefinition和BeanPostProcessor](https://zhuanlan.zhihu.com/p/70642885)
+> 
+>  [spring 中的设计模式](./docs/Spring 中的设计模式.md)
+> 
+>  [动态代理和CGLIB](./docs/动态代理和CGLIB.md)
+> 
 > > [事务传播机制](./docs/spring事务传播机制.md)
 >
 > Spring MVC
@@ -168,45 +168,44 @@
 > >
 > > [Plugin原理](./docs/Mybatis插件原理.md)
 
-- 数据库
+# 数据库
 
-> Redis
->
-> > [布隆过滤器](./docs/布隆过滤器.md)
-> >
-> > [Redis数据类型](./docs/Redis数据类型)
-> >
-> > [面试官：你看过Redis数据结构底层实现吗？](https://www.cnblogs.com/javazhiyin/p/11063944.html)
-> >
-> > [Redis 数据结构和对象系统，有这 12 张图就够了！](https://blog.csdn.net/TG229dvt5I93mxaQ5A6U/article/details/93259425)
-> >
-> > 为什么单线程
-> >
-> > > 内存操作、线程切换消耗、多路复用
-> >
-> > [Redis 深度历险：核心原理与应用实践](https://juejin.im/book/5afc2e5f6fb9a07a9b362527)
-> >
-> > > 应用4 HyperLogLog
-> > >
-> > > 应用5 布隆过滤器
-> > >
-> > > 应用6 简单限流
-> > >
-> > > 应用7 漏斗限流
-> > >
-> > > 原理3 持久化（AOF 和 RDB）
-> >
-> > [过期策略](./docs/Redis过期策略.md)
-> >
-> > [Redlock分布式锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/database/Redis/Redlock分布式锁.md)
-> >
-> > 集群、哨兵
-> >
-> > > 集群模式下的发布订阅模式失效
-> > >
-> > > 6节点，三主（哨兵）三备
->
-> MySQL
+## Redis
+>  [布隆过滤器](./docs/布隆过滤器.md)
+> 
+>  [Redis数据类型](./docs/Redis数据类型)
+> 
+>  [面试官：你看过Redis数据结构底层实现吗？](https://www.cnblogs.com/javazhiyin/p/11063944.html)
+> 
+>  [Redis 数据结构和对象系统，有这 12 张图就够了！](https://blog.csdn.net/TG229dvt5I93mxaQ5A6U/article/details/93259425)
+> 
+>  为什么单线程
+> 
+>  内存操作、线程切换消耗、多路复用
+> 
+>  [Redis 深度历险：核心原理与应用实践](https://juejin.im/book/5afc2e5f6fb9a07a9b362527)
+> 
+>  应用4 HyperLogLog
+> 
+>  应用5 布隆过滤器
+> 
+>  应用6 简单限流
+> 
+>  应用7 漏斗限流
+> 
+>  原理3 持久化（AOF 和 RDB）
+> 
+>  [过期策略](./docs/Redis过期策略.md)
+> 
+>  [Redlock分布式锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/database/Redis/Redlock分布式锁.md)
+> 
+>  集群、哨兵
+> 
+>  集群模式下的发布订阅模式失效
+> 
+>  6节点，三主（哨兵）三备
+> 
+## MySQL
 >
 > >[一千行MySQL命令](https://github.com/Snailclimb/JavaGuide/blob/master/docs/database/一千行MySQL命令.md)
 > >
@@ -236,13 +235,13 @@
 > >
 > >[主从复制](https://github.com/ZXZxin/ZXBlog/blob/master/数据库/MySQL/advance/MYSQL主从复制.md)
 >
-> MongoDB
+## MongoDB
 >
 > > [Mongodb相对于关系型数据库的优缺点](http://mxdxm.iteye.com/blog/2093603)
 > >
 > > [MongoDb 基础语法](https://www.mongodb.org.cn/tutorial/)
 
-- 分布式
+# 分布式
 
 > [分布式](https://github.com/CyC2018/CS-Notes/blob/master/notes/分布式.md)
 >
@@ -256,9 +255,9 @@
 >
 > [浅析如何设计一个亿级网关](https://github.com/javagrowing/JGrowing/blob/master/服务端开发/浅析如何设计一个亿级网关.md)
 >
-> [如果再有人问你分布式ID，这篇文章扔给他](https://github.com/javagrowing/JGrowing/blob/master/分布式/如果再有人问你分布式 ID，这篇文章丢给他.md)
+> [如果再有人问你分布式ID，这篇文章扔给他](`https://github.com/javagrowing/JGrowing/blob/master/分布式/如果再有人问你分布式 ID，这篇文章丢给他.md`)
 >
-> [如果再有人问你分布式锁,这篇文章扔给他](https://github.com/javagrowing/JGrowing/blob/master/分布式/再有人问你分布式锁，这篇文章扔给他.md)
+> [如果再有人问你分布式锁,这篇文章扔给他](`https://github.com/javagrowing/JGrowing/blob/master/分布式/再有人问你分布式锁，这篇文章扔给他.md`)
 >
 > [谈谈数据一致性](https://github.com/javagrowing/JGrowing/blob/master/分布式/谈谈数据一致性.md)
 >
@@ -266,9 +265,9 @@
 >
 > [6种限流方式](./docs/分布式/6种限流方式.md)
 
-- 微服务
+# 微服务
 
-> SpringBoot
+## SpringBoot
 >
 > > [SpringApplication.run做了哪些事？](https://mp.weixin.qq.com/s/O2zS2yyLy1Vu_aPtR28wiQ)
 > >
@@ -278,23 +277,23 @@
 > >
 > > [SpringBoot使用Docker快速部署项目](https://juejin.im/post/5d26b1efe51d4556da53d159)
 >
-> SpringCloud
->
-> > 注册中心
-> >
-> > 负载均衡
-> >
-> > 接口调用
-> >
-> > 熔断器
-> >
-> > 网关
-> >
-> > 监控中心
-> >
-> > 链路追踪
->
-> Dubbo
+## SpringCloud
+
+### 注册中心
+
+### 负载均衡
+
+### RPC
+
+### 熔断器
+
+### 网关
+
+### 监控中心
+
+### 链路追踪
+
+## Dubbo
 >
 > [Eureka-注册中心](./docs/Eureka.md)
 >
@@ -330,9 +329,9 @@
 >
 > [一致性哈希算法](./docs/一致性哈希算法.md)
 
-- 中间件
+# 中间件
 
-> RabbitMQ
+## RabbitMQ
 >
 > > [RabbitMQ的应用场景以及基本原理介绍](https://blog.csdn.net/whoamiyang/article/details/54954780)
 > >
@@ -350,13 +349,16 @@
 > >
 > > [如何保证消息的可靠性传输？（如何处理消息丢失的问题）](https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/how-to-ensure-the-reliable-transmission-of-messages.md)
 >
-> Kafka
+## Kafka
 >
-> > 概念：topic、region、节点
-> >
-> > 消息模式
+>  概念：topic、region、节点
+> 
+>  消息模式
 
-- 大数据
+## Active
+## RocketMQ
+
+# 大数据
 
 > Hadoop
 >
@@ -368,7 +370,7 @@
 >
 > Spark
 
-- 服务器
+# 服务器
 
 > Linux
 >
@@ -376,20 +378,20 @@
 >
 > docker
 
-版本控制工具
+# 版本控制工具
 
 > SVN
 >
 > [GIT常用命令](./docs/git/git.md)
 
-编译工具
+# 编译工具
 
-> Maven
+## Maven
 
-自动持续集成
+## 自动持续集成
 
-> Jenkins 一键部署
-> GitLab
+### Jenkins 一键部署
+### GitLab
 
 ## 其他
 
