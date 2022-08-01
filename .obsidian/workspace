@@ -1,0 +1,113 @@
+{
+  "main": {
+    "id": "b5414e0f1095f060",
+    "type": "split",
+    "children": [
+      {
+        "id": "5f1eaaeb77695b5c",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "docs/java进阶/JVM/JVM.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "14089702c774caa4",
+    "type": "split",
+    "children": [
+      {
+        "id": "9728893e897ab313",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c7359b3c00b205fe",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "d05e2cc99a637c7f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "fea9ec4a882f8e3d",
+    "type": "split",
+    "children": [
+      {
+        "id": "4a2606a09bab4f2b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "00f02a33a6e8b369",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/java进阶/JVM/JVM.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6042fd691a2e2314",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/java进阶/JVM/JVM.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "5f1eaaeb77695b5c",
+  "lastOpenFiles": [
+    "gitbook/README.md",
+    "docs/GiteePages+GitBooks+MarkDown.md",
+    "docs/java进阶/JVM/JVM.md",
+    "images/JDK8运行时内存.png",
+    "images/Mybatis.getMapper原理.jpg",
+    "docs/java基础/数据类型.md",
+    "docs/java进阶/JVM/类加载器.md",
+    "docs/java进阶/JVM/死锁.md",
+    "docs/java进阶/JVM/虚拟机自带性能监控和故障排查工具.md",
+    "22222.md"
+  ]
+}

@@ -401,7 +401,7 @@ public class TimedSupervisorTask extends TimerTask {
 
 主要代码结构如下：
 
-![](../images/EurekaServer.png)
+![](images/EurekaServer.png)
 
 LeaseManager 对注册到 Eureka Server 的服务实例租约管理，包括服务注册、服务下线、服务租约更新、服务剔除。服务实例信息的对象是 Lease，定义了对租约的注册、下线、更新等操作。租约默认时长 90 秒。
 

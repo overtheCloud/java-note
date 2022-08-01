@@ -6,49 +6,49 @@
 
 # 数据结构
 
-> [算法和数据结构](./docs/算法和数据结构.md)
+> [算法和数据结构](算法和数据结构.md)
 >
 > [30张图带你彻底理解红黑树](https://www.jianshu.com/p/e136ec79235c)
 
 # 设计模式
 
-> [设计模式](./docs/设计模式/设计模式.md)
+> [设计模式](设计模式.md)
 >
-> [单例模式](./docs/设计模式/单例模式.md)
+> [单例模式](单例模式.md)
 >
-> [装饰者模式](./docs/设计模式/装饰者模式)
+> [装饰者模式](装饰者模式.md)
 >
-> [观察者模式](./docs/设计模式/观察者模式)
+> [观察者模式](观察者模式.md)
 
 # 基础
 
-> [8 种基础数据类型和 String、StringBuffer、StringBuilder](./docs/数据类型.md) 
+> [8 种基础数据类型和 String、StringBuffer、StringBuilder](数据类型.md) 
 >
-> [修饰符](./docs/修饰符.md)
+> [修饰符](修饰符.md)
 >
-> [类与对象](./docs/类与对象.md)
+> [类与对象](类与对象.md)
 >
-> [Java8](./docs/JAVA8.md)
+> [Java8](JAVA8.md)
 >
-> [keytool](./docs/keytool.md)
+> [keytool](keytool.md)
 
 - 集合
 
-> [ArrayList 源码](./docs/ArrayList.md)
+> [ArrayList 源码](ArrayList.md)
 >
-> [LinkedList 源码](./docs/LinkedList.md)
+> [LinkedList 源码](LinkedList.md)
 >
-> [HashMap 源码](./docs/HashMap.md)
+> [HashMap 源码](HashMap.md)
 >
-> [LinkedHashMap](./docs/LinkedHashMap.md)
+> [LinkedHashMap](LinkedHashMap.md)
 >
 > ConcurrentHashMap
 >
-> [TreeMap](./docs/TreeMap.md)
+> [TreeMap](TreeMap.md)
 
 - IO
 
-> [IO](./docs/IO.md)
+> [IO](IO.md)
 >
 > [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)
 >
@@ -64,13 +64,13 @@
 
 - 并发
 
-> [多线程](./docs/多线程.md)
+> [多线程](多线程.md)
 >
 > [Java 并发](https://github.com/CyC2018/CS-Notes/blob/master/notes/Java 并发.md)
 >
-> [synchronized 原理](./docs/synchronized.md)
+> [synchronized 原理](synchronized.md)
 >
-> [volatile 原理](./docs/volatile.md)
+> [volatile 原理](volatile.md)
 >
 > [Java 并发基础之内存模型](https://javadoop.com/post/java-memory-model)
 >
@@ -100,21 +100,21 @@
 >
 > [wait和notifyAll实现生产消费模型](https://www.cnblogs.com/Kevin-mao/p/5950743.html)
 >
-> [线程死锁](./docs/死锁.md)
+> [线程死锁](死锁.md)
 
 - JVM
 
-> [JVM](./docs/JVM/JVM.md)
+> [JVM](JVM.md)
 >
 > [class 文件](https://www.jianshu.com/p/247e2475fc3a)
 >
-> [虚拟机自带性能监控和故障排查工具](./docs/JVM/虚拟机自带性能监控和故障排查工具.md)
+> [虚拟机自带性能监控和故障排查工具](虚拟机自带性能监控和故障排查工具.md)
 >
 > [解密阿里线上问题诊断工具Arthas和jvm-sandbox](https://github.com/javagrowing/JGrowing/blob/master/CaseStudy/排查工具/解密阿里线上问题诊断工具Arthas和jvm-sandbox.md)
 >
-> [Arthas](./docs/JVM/arthas.md)
+> [Arthas](arthas.md)
 >
-> [类加载器](./docs/JVM/类加载器.md)
+> [类加载器](类加载器.md)
 
 # web 基础
 
@@ -132,9 +132,9 @@
 >
 >[NGINX 简介](./docs/nginx/NGINX 简介.md)
 >
->[安装NGNIX](./docs/nginx/安装NGNIX.md)
+>[安装NGNIX](安装NGNIX.md)
 >
->[NGINX常用命令](./docs/nginx/常用命令.md)
+>[NGINX常用命令](常用命令.md)
 
 # 框架
 
@@ -154,9 +154,9 @@
 > 
 >  [spring 中的设计模式](./docs/Spring 中的设计模式.md)
 > 
->  [动态代理和CGLIB](./docs/动态代理和CGLIB.md)
+>  [动态代理和CGLIB](动态代理和CGLIB.md)
 > 
-> > [事务传播机制](./docs/spring事务传播机制.md)
+> > [事务传播机制](spring事务传播机制.md)
 >
 > Spring MVC
 >
@@ -164,16 +164,16 @@
 >
 > Mybatis
 >
-> > [Mapper 加载流程](./docs/Mybatis加载流程.md)
+> > [Mapper 加载流程](Mybatis加载流程.md)
 > >
-> > [Plugin原理](./docs/Mybatis插件原理.md)
+> > [Plugin原理](Mybatis插件原理.md)
 
 # 数据库
 
 ## Redis
->  [布隆过滤器](./docs/布隆过滤器.md)
+>  [布隆过滤器](布隆过滤器.md)
 > 
->  [Redis数据类型](./docs/Redis数据类型)
+>  [Redis数据类型](Redis数据类型.md)
 > 
 >  [面试官：你看过Redis数据结构底层实现吗？](https://www.cnblogs.com/javazhiyin/p/11063944.html)
 > 
@@ -195,7 +195,7 @@
 > 
 >  原理3 持久化（AOF 和 RDB）
 > 
->  [过期策略](./docs/Redis过期策略.md)
+>  [过期策略](Redis过期策略.md)
 > 
 >  [Redlock分布式锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/database/Redis/Redlock分布式锁.md)
 > 
@@ -209,11 +209,11 @@
 >
 > >[一千行MySQL命令](https://github.com/Snailclimb/JavaGuide/blob/master/docs/database/一千行MySQL命令.md)
 > >
-> >[存储引擎InnoDB 和 MyISAM](./docs/存储引擎InnoDB和MyISAM.md)
+> >[存储引擎InnoDB 和 MyISAM](存储引擎InnoDB和MyISAM.md)
 > >
 > >[InnoDB 中 B + Tree 索引](https://github.com/crossoverJie/JCSprout/blob/master/MD/MySQL-Index.md)
 > >
-> >[SQL 执行顺序](./docs/SQL执行顺序.md)
+> >[SQL 执行顺序](SQL执行顺序.md)
 > >
 > >[一条sql语句在mysql中如何执行的](https://github.com/Snailclimb/JavaGuide/blob/master/docs/database/一条sql语句在mysql中如何执行的.md)
 > >
@@ -229,7 +229,7 @@
 > >
 > >[Delete&Insert引发的Mysql死锁](https://blog.csdn.net/hellozhxy/article/details/80455092)
 > >
-> >[SQL 优化](./docs/SQL优化.md)
+> >[SQL 优化](SQL优化.md)
 > >
 > >[explain](https://blog.csdn.net/drdongshiye/article/details/84546264)
 > >
@@ -263,7 +263,7 @@
 >
 > [分布式必看系列](https://github.com/doocs/advanced-java)
 >
-> [6种限流方式](./docs/分布式/6种限流方式.md)
+> [6种限流方式](6种限流方式.md)
 
 # 微服务
 
@@ -295,9 +295,9 @@
 
 ## Dubbo
 >
-> [Eureka-注册中心](./docs/Eureka.md)
+> [Eureka-注册中心](Eureka.md)
 >
-> [Zookeeper](./docs/Zookeeper.md)-注册中心、配置中心
+> [Zookeeper](Zookeeper.md)-注册中心、配置中心
 >
 > Nacos-注册中心、配置中心
 >
@@ -327,7 +327,7 @@
 >
 > ELK-elasticsearch+logstash+kibana
 >
-> [一致性哈希算法](./docs/一致性哈希算法.md)
+> [一致性哈希算法](一致性哈希算法.md)
 
 # 中间件
 
@@ -382,7 +382,7 @@
 
 > SVN
 >
-> [GIT常用命令](./docs/git/git.md)
+> [GIT常用命令](git.md)
 
 # 编译工具
 
@@ -397,7 +397,7 @@
 
 - 提高开发效率
 
-> [Lombok详解](./docs/Lombok详解.md) 为 `bean` 自动生成 `get`、`set`、构造方法等。
+> [Lombok详解](Lombok详解.md) 为 `bean` 自动生成 `get`、`set`、构造方法等。
 
 - 写笔记博客
 
