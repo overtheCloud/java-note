@@ -104,7 +104,7 @@
 
 - JVM
 
-> [JVM](JVM.md)
+> [JVM](./docs/java进阶/JVM/JVM.md)
 >
 > [class 文件](https://www.jianshu.com/p/247e2475fc3a)
 >

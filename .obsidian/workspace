@@ -99,15 +99,15 @@
   },
   "active": "5f1eaaeb77695b5c",
   "lastOpenFiles": [
+    "README.md",
+    "docs/java进阶/JVM/JVM.md",
+    "22222.md",
     "gitbook/README.md",
     "docs/GiteePages+GitBooks+MarkDown.md",
-    "docs/java进阶/JVM/JVM.md",
     "images/JDK8运行时内存.png",
     "images/Mybatis.getMapper原理.jpg",
     "docs/java基础/数据类型.md",
     "docs/java进阶/JVM/类加载器.md",
-    "docs/java进阶/JVM/死锁.md",
-    "docs/java进阶/JVM/虚拟机自带性能监控和故障排查工具.md",
-    "22222.md"
+    "docs/java进阶/JVM/死锁.md"
   ]
 }
