@@ -108,13 +108,15 @@
 >
 > [class 文件](https://www.jianshu.com/p/247e2475fc3a)
 >
-> [虚拟机自带性能监控和故障排查工具](虚拟机自带性能监控和故障排查工具.md)
+> [虚拟机自带性能监控和故障排查工具](./docs/java进阶/JVM/虚拟机自带性能监控和故障排查工具.md)
 >
 > [解密阿里线上问题诊断工具Arthas和jvm-sandbox](https://github.com/javagrowing/JGrowing/blob/master/CaseStudy/排查工具/解密阿里线上问题诊断工具Arthas和jvm-sandbox.md)
 >
-> [Arthas](arthas.md)
+> [Arthas](./docs/java进阶/JVM/arthas.md)
 >
-> [类加载器](类加载器.md)
+> [类加载器](./docs/java进阶/JVM/类加载器.md)
+>
+> [GC调优](./docs/java进阶/JVM/GC调优.md)
 
 # web 基础
 
